@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">
+  <div align="center">
+      <h1>Movie-app</h1>
+  </div>
+  
+
+  <div align="center" (click)="onClick()">
+      <button class="btn btn-primary" type="submit">Wishlist</button> 
+  </div>
+
+  <br>
+  <br>
+
+  <div *ngFor="let movie of movies" align="center">
+    <h6>{{movie.title}}</h6>
+    <h6>{{movie.year}}</h6>
+    <h6>{{movie.imdbId}}</h6>
+    <h6>{{movie.type}}</h6>
+    <img src={{movie.poster}} alt="Smiley face" height="200" width="200">
+    <div align="center" (click)="onDelete(movie)">
+      <button class="btn btn-primary" type="submit">Delete</button> 
+    </div>
+    <br>
+    <br>
+  </div>
+  
+</div>
