@@ -34,6 +34,6 @@ export class MovieService {
     return this.http.delete(this._urlDelete+movieId);
   }
   defaultMovie(){
-    return this.http.get('http://www.omdbapi.com/?s=don&apikey=6db283eb');
+    return this.http.get('http://www.omdbapi.com/?s=fast&apikey=6db283eb');
   }
 }

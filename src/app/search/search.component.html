@@ -1,21 +1,24 @@
-
-<mat-toolbar color="primary">
+<mat-toolbar color="black">
   <mat-toolbar-row>
-    <span id="movie">Movies</span>
-    <span class="example-spacer"style="margin-left: 250px">
-    <mat-form-field>
-      <input matInput value="Search ImDB..." [(ngModel)]="movieTitle">
-      <button (click)="onSearch()" mat-raised-button color="accent" style="margin-left: 50px">Search ImDB Movies</button>
-    </mat-form-field>
+    <span id="movie">
+      <img src="../../assets/41xAgVLyWcL.png" height="50px" width="150px" alt="movie-img">
+    </span>
+    <span class="example-spacer" style="margin-left: 250px">
+      <mat-form-field>
+          <mat-icon class="searchIcon">search</mat-icon>
+        <input type="text"  matInput value="Search ImDB..." [(ngModel)]="movieTitle" label="search">
+        
+        <button (click)="onSearch()"  mat-stroked-button color="accent" style="margin-left: 50px">Search ImDB Movies</button>
+      </mat-form-field>
     </span>
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <div (click)="onClick()">
-            <button mat-menu-item>Wishlist</button>
-        </div>
-        <button mat-menu-item>Sign Out </button>
+      <div (click)="onClick()">
+        <button mat-menu-item>Wishlist</button>
+      </div>
+      <button mat-menu-item>Sign Out </button>
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -27,37 +30,37 @@
   <br>
   <button class="btn btn-primary" type="search">Search Movie DataBase</button>
 </div> -->
-<mat-grid-list cols="4" rowHeight="100px">
+<mat-grid-list cols="3" rowHeight="100px">
   <div *ngFor="let movie of omdbMovie">
     <mat-grid-tile colspan="1" rowspan="6">
-        <mat-card class="example-card">
-            <mat-card-header  >
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{movie.Title}}</mat-card-title>
-              <mat-card-subtitle>{{movie.Year}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src={{movie.Poster}} alt="Movie Poster" height="400px">
-            <mat-card-actions>
-              <button  mat-flat-button color="warn" (click)="onSubmit(movie)">Add to watchList</button>
-            </mat-card-actions>
-          </mat-card>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{movie.Title}}</mat-card-title>
+          <mat-card-subtitle>{{movie.Year}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src={{movie.Poster}} alt="Movie Poster" height="400px">
+        <mat-card-actions>
+          <button mat-flat-button color="warn" (click)="onSubmit(movie)">Add to watchList</button>
+        </mat-card-actions>
+      </mat-card>
     </mat-grid-tile>
-    </div>
-    <div *ngFor="let movie of movies">
-      <mat-grid-tile colspan="1" rowspan="6">
-          <mat-card class="example-card">
-              <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>{{movie.title}}</mat-card-title>
-                <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
-              </mat-card-header>
-              <img mat-card-image  src={{movie.poster}} alt="Movie Poster" height="400px">
-              <mat-card-actions>
-                <button mat-flat-button color="warn" (click)="onDelete(movie)">Delete</button>
-              </mat-card-actions>
-            </mat-card>
-      </mat-grid-tile>
-    </div>
+  </div>
+  <div *ngFor="let movie of movies">
+    <mat-grid-tile colspan="1" rowspan="6">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{movie.title}}</mat-card-title>
+          <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src={{movie.poster}} alt="Movie Poster" height="400px">
+        <mat-card-actions>
+          <button mat-flat-button color="warn" (click)="onDelete(movie)">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </div>
 </mat-grid-list>
 <!-- <div *ngFor="let movie of omdbMovie" align="center">
   <h6>{{movie.Title}}</h6>
@@ -72,4 +75,3 @@
   <br>
   <br>
 </div> -->
-
